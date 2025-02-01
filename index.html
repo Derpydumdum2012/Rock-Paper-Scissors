@@ -8,12 +8,15 @@
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div class="buttons">
-        <button onclick="playGame('rock')">Rock</button>
-        <button onclick="playGame('paper')">Paper</button>
-        <button onclick="playGame('scissors')">Scissors</button>
+    <div class="game">
+        <div class="buttons">
+            <button onclick="playGame('rock')">Rock</button>
+            <button onclick="playGame('paper')">Paper</button>
+            <button onclick="playGame('scissors')">Scissors</button>
+        </div>
+        <div class="result" id="result"></div>
+        <button id="retryButton" onclick="retryGame()" style="display: none;">Retry</button>
     </div>
-    <div class="result" id="result"></div>
 
     <script src="script.js"></script>
 </body>
