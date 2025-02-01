@@ -9,24 +9,23 @@
 <body>
     <h1>Rock Paper Scissors</h1>
     <div class="game">
-        <div id="initialsPrompt">
-            <label for="initials">Enter your initials: </label>
-            <input type="text" id="initials" maxlength="3">
-            <button onclick="startGame()">Start Game</button>
-        </div>
-        <div class="buttons" style="display: none;">
+        <div class="buttons">
             <button onclick="playGame('rock')">Rock</button>
             <button onclick="playGame('paper')">Paper</button>
             <button onclick="playGame('scissors')">Scissors</button>
         </div>
         <div class="result" id="result"></div>
         <button id="retryButton" onclick="retryGame()" style="display: none;">Retry</button>
-        <div class="score" style="display: none;">
-            <p>Initials: <span id="playerInitials"></span></p>
+        <div id="initialsPrompt" style="display: none;">
+            <label for="initials">Enter your initials: </label>
+            <input type="text" id="initials" maxlength="3">
+            <button onclick="submitInitials()">Submit</button>
+        </div>
+        <div class="score">
             <p>Score: <span id="score">0</span></p>
             <p>High Score: <span id="highScore">0</span></p>
         </div>
-        <div class="leaderboard" style="display: none;">
+        <div class="leaderboard">
             <h2>Leaderboard</h2>
             <ol id="leaderboard"></ol>
         </div>
