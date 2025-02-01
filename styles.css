@@ -14,9 +14,6 @@ h1 {
 .game {
     text-align: center;
 }
-#initialsPrompt {
-    margin-bottom: 20px;
-}
 .buttons {
     display: flex;
     gap: 10px;
@@ -32,6 +29,9 @@ button {
     font-size: 1.2rem;
 }
 #retryButton {
+    margin-top: 20px;
+}
+#initialsPrompt {
     margin-top: 20px;
 }
 .score {
