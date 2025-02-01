@@ -1,20 +1,6 @@
 let score = 0;
 let highScore = 0;
 const leaderboard = [];
-let playerInitials = '';
-
-function startGame() {
-    playerInitials = document.getElementById('initials').value.toUpperCase();
-    if (playerInitials === '') {
-        alert('Please enter your initials to start the game.');
-        return;
-    }
-    document.getElementById('playerInitials').innerText = playerInitials;
-    document.getElementById('initialsPrompt').style.display = 'none';
-    document.querySelector('.buttons').style.display = 'flex';
-    document.querySelector('.score').style.display = 'block';
-    document.querySelector('.leaderboard').style.display = 'block';
-}
 
 function playGame(playerChoice) {
     const choices = ['rock', 'paper', 'scissors'];
@@ -34,9 +20,9 @@ function playGame(playerChoice) {
         result = 'You lose!';
         if (score > highScore) {
             highScore = score;
-            updateLeaderboard(playerInitials, score);
         }
-        score = 0;
+        showInitialsPrompt();
+        return;
     }
 
     document.getElementById('result').innerText = `You chose ${playerChoice}. Computer chose ${computerChoice}. ${result}`;
@@ -63,6 +49,25 @@ function enableGameButtons() {
 function retryGame() {
     document.getElementById('result').innerText = '';
     document.getElementById('retryButton').style.display = 'none';
+    enableGameButtons();
+}
+
+function showInitialsPrompt() {
+    document.getElementById('initialsPrompt').style.display = 'block';
+    disableGameButtons();
+}
+
+function submitInitials() {
+    const initials = document.getElementById('initials').value.toUpperCase();
+    if (!initials) {
+        alert('Please enter your initials');
+        return;
+    }
+    updateLeaderboard(initials, score);
+    document.getElementById('initialsPrompt').style.display = 'none';
+    score = 0;
+    document.getElementById('score').innerText = score;
+    document.getElementById('retryButton').style.display = 'block';
     enableGameButtons();
 }
 
